@@ -13,6 +13,7 @@ import scipy.stats as st
 from datetime import datetime
 
 
+class Asset():
 DISTRIBUTIONS = [        
             st.alpha,#,st.anglit,st.arcsine,st.beta,st.betaprime,st.bradford,st.burr,st.cauchy,st.chi,st.chi2,st.cosine,
             #st.dgamma,st.dweibull,st.erlang,st.expon,st.exponnorm,st.exponweib,st.exponpow,st.f,st.fatiguelife,st.fisk,
@@ -27,7 +28,7 @@ DISTRIBUTIONS = [
             st.uniform, st.johnsonsu, #st.vonmises, st.vonmises_line, st.wald, st.weibull_min, st.weibull_max, st.wrapcauchy
         ]
 
-class Commodity:
+class Commodity(Asset):
 
     def __init__(self, spot, 
                  name = "Empty_Name"):
@@ -59,7 +60,8 @@ class Commodity:
         return (pd.Series(result))
     
     def fit(self):
-        pass
+        for i in DISTRIBUTIONS:
+            print(i.name)
     
     
     @property
@@ -96,6 +98,8 @@ class Commodity:
     @first_diff.setter
     def first_diff(self, new):
         raise TypeError('Задайте сначала значения цен')
+        
+    
 
         
         
@@ -209,5 +213,11 @@ class Currency:
         else:
             return -1
         
-USD = Currency(base="USD", name = "Доллар")
-EUR = Currency(base="EUR", name = "Евро")   
+    def fit(self):
+        for i in DISTRIBUTIONS:
+            pass
+        return i
+if  __name__ == '__main__':
+    
+    USD = Currency(base="USD", name = "Доллар") 
+    EUR = Currency(base="EUR", name = "Евро")   
