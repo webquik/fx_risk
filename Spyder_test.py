@@ -14,7 +14,9 @@ from datetime import datetime
 
 
 class Asset():
-DISTRIBUTIONS = [        
+
+    
+    DISTRIBUTIONS = [        
             st.alpha,#,st.anglit,st.arcsine,st.beta,st.betaprime,st.bradford,st.burr,st.cauchy,st.chi,st.chi2,st.cosine,
             #st.dgamma,st.dweibull,st.erlang,st.expon,st.exponnorm,st.exponweib,st.exponpow,st.f,st.fatiguelife,st.fisk,
             #st.foldcauchy,st.foldnorm,st.genlogistic,st.genpareto,st.gennorm,st.genexpon,
@@ -28,6 +30,11 @@ DISTRIBUTIONS = [
             st.uniform, st.johnsonsu, #st.vonmises, st.vonmises_line, st.wald, st.weibull_min, st.weibull_max, st.wrapcauchy
         ]
 
+    def fit(self):
+        for i in DISTRIBUTIONS:
+            pass
+        return i
+    
 class Commodity(Asset):
 
     def __init__(self, spot, 
@@ -103,7 +110,7 @@ class Commodity(Asset):
 
         
         
-class Currency:
+class Currency(Asset):
     def __init__(self, 
                  start_date = "2010-01-01", 
                  end_date = datetime.today().strftime('%Y-%m-%d'),
@@ -213,10 +220,7 @@ class Currency:
         else:
             return -1
         
-    def fit(self):
-        for i in DISTRIBUTIONS:
-            pass
-        return i
+
 if  __name__ == '__main__':
     
     USD = Currency(base="USD", name = "Доллар") 
