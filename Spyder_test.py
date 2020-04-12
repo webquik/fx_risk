@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+
+#dist = getattr(stats.stats, 'distribution name')
+#params = dist.fit(data)
+
 """
 Created on Wed Apr  8 21:15:06 2020
 
