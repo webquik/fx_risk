@@ -27,11 +27,10 @@ class Asset():
         def SSE(x, y):
             return np.sum(np.power(y - x, 2.0)) 
           
-        best_distribution = st.norm
-        best_params = (0.0, 1.0)
-        best_sse = np.inf
-
-
+        
+        def LLH(x, y):
+            return dist.logpdf(data,*params).sum()
+             
 
         for i in DISTRIBUTIONS:
             pass
