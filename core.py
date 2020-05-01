@@ -19,6 +19,11 @@ from datetime import datetime
 
 class Asset():
 
+    """
+    Функция подбора параметров
+
+    """
+
     def fit(self, 
             criteria = "SSE",
             dist = [st.norm, st.lognorm,st.alpha, st.beta, st.pareto]
